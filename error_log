@@ -1,0 +1,344 @@
+[19-Apr-2017 21:52:26 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/lamibl/system/application/controllers/maestros/configuracionimpresion.php(553): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('2', '8', '1', 'V')
+#4 /home/osaerp/public_html/desarrollo/lamibl/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/lamibl/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php on line 271
+[20-Apr-2017 17:23:33 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/lamibl/system/application/controllers/maestros/configuracionimpresion.php(555): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('11', '1', '0', 'V')
+#4 /home/osaerp/public_html/desarrollo/lamibl/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/lamibl/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php on line 271
+[20-Apr-2017 17:23:38 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/lamibl/system/application/controllers/maestros/configuracionimpresion.php(555): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('10', '1', '0', 'V')
+#4 /home/osaerp/public_html/desarrollo/lamibl/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/lamibl/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php on line 271
+[20-Apr-2017 17:23:48 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/lamibl/system/application/controllers/maestros/configuracionimpresion.php(555): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('8', '1', '1', 'V')
+#4 /home/osaerp/public_html/desarrollo/lamibl/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/lamibl/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php on line 271
+[20-Apr-2017 17:24:15 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/lamibl/system/application/controllers/maestros/configuracionimpresion.php(555): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('10', '1', '0', 'V')
+#4 /home/osaerp/public_html/desarrollo/lamibl/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/lamibl/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php on line 271
+[20-Apr-2017 17:39:26 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/lamibl/system/application/controllers/maestros/configuracionimpresion.php(555): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('11', '1', '0', 'V')
+#4 /home/osaerp/public_html/desarrollo/lamibl/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/lamibl/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php on line 271
+[20-Apr-2017 17:39:30 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/lamibl/system/application/controllers/maestros/configuracionimpresion.php(555): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('11', '1', '0', 'V')
+#4 /home/osaerp/public_html/desarrollo/lamibl/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/lamibl/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php on line 271
+[20-Apr-2017 17:39:41 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/lamibl/system/application/controllers/maestros/configuracionimpresion.php(555): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('11', '1', '0', 'V')
+#4 /home/osaerp/public_html/desarrollo/lamibl/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/lamibl/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php on line 271
+[20-Apr-2017 17:39:50 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/lamibl/system/application/controllers/maestros/configuracionimpresion.php(555): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('8', '1', '1', 'V')
+#4 /home/osaerp/public_html/desarrollo/lamibl/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/lamibl/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php on line 271
+[20-Apr-2017 17:39:52 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/lamibl/system/application/controllers/maestros/configuracionimpresion.php(555): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('3', '1', '0', 'V')
+#4 /home/osaerp/public_html/desarrollo/lamibl/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/lamibl/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php on line 271
+[20-Apr-2017 17:40:46 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/lamibl/system/application/controllers/maestros/configuracionimpresion.php(555): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('10', '1', '0', 'V')
+#4 /home/osaerp/public_html/desarrollo/lamibl/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/lamibl/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/lamibl/system/application/libraries/fpdf/fpdf.php on line 271
+[16-Sep-2017 16:05:01 UTC] PHP Fatal error:  Call to a member function order_by() on a non-object in /home/osaerp/public_html/desarrollo/lamibl/system/application/models/tesoreria/banco_model.php on line 27
+[16-Sep-2017 16:05:04 UTC] PHP Fatal error:  Call to a member function order_by() on a non-object in /home/osaerp/public_html/desarrollo/lamibl/system/application/models/tesoreria/banco_model.php on line 27
+[16-Sep-2017 16:05:18 UTC] PHP Fatal error:  Call to a member function order_by() on a non-object in /home/osaerp/public_html/desarrollo/lamibl/system/application/models/tesoreria/banco_model.php on line 27
+[16-Sep-2017 16:05:42 UTC] PHP Fatal error:  Call to a member function order_by() on a non-object in /home/osaerp/public_html/desarrollo/lamibl/system/application/models/tesoreria/banco_model.php on line 27
+[14-Nov-2017 15:20:56 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/inycon/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/inycon/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/inycon/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/inycon/system/application/controllers/maestros/configuracionimpresion.php(561): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('13', '14', '0', 'C')
+#4 /home/osaerp/public_html/desarrollo/inycon/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/inycon/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/inycon/system/application/libraries/fpdf/fpdf.php on line 271
+[14-Nov-2017 15:21:02 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file' in /home/osaerp/public_html/desarrollo/inycon/system/application/libraries/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/osaerp/public_html/desarrollo/inycon/system/application/libraries/fpdf/fpdf.php(1066): FPDF->Error('Some data has a...')
+#1 /home/osaerp/public_html/desarrollo/inycon/system/application/libraries/fpdf/fpdf.php(1002): FPDF->_checkoutput()
+#2 /home/osaerp/public_html/desarrollo/inycon/system/application/controllers/maestros/configuracionimpresion.php(561): FPDF->Output('I', 'temporal/Impres...')
+#3 [internal function]: Configuracionimpresion->impresionDocumento('17', '14', '0', 'C')
+#4 /home/osaerp/public_html/desarrollo/inycon/system/codeigniter/CodeIgniter.php(471): call_user_func_array(Array, Array)
+#5 /home/osaerp/public_html/desarrollo/inycon/index.php(229): require_once('/home/osaerp/pu...')
+#6 {main}
+  thrown in /home/osaerp/public_html/desarrollo/inycon/system/application/libraries/fpdf/fpdf.php on line 271
+[23-Jan-2018 09:27:35 America/Los_Angeles] PHP Parse error:  syntax error, unexpected '<' in /home/osaerp/public_html/desarrollo/inycon/system/application/views/compras/ocompra_nueva.php on line 610
+[23-Jan-2018 09:27:53 America/Los_Angeles] PHP Parse error:  syntax error, unexpected '<' in /home/osaerp/public_html/desarrollo/inycon/system/application/views/compras/ocompra_nueva.php on line 610
+[20-Sep-2022 16:33:19 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Ventas_Model::total_pagos() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/reportes/ventas.php:3893
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ventas->descargarExcel('2022-08-01', '2022-08-31')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/reportes/ventas.php on line 3893
+[20-Sep-2022 16:33:49 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Ventas_Model::total_pagos() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/reportes/ventas.php:3893
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ventas->descargarExcel('2022-08-01', '2022-08-31')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/reportes/ventas.php on line 3893
+[09-Nov-2022 11:48:28 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'F', '_____')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[12-Dec-2022 15:35:52 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Comprobante_model::anios_para_reportes() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php:5451
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ocompra->reportes()
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php on line 5451
+[13-Jan-2023 11:34:13 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Comprobante_model::anios_para_reportes() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php:5451
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ocompra->reportes()
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php on line 5451
+[24-Jan-2023 14:52:10 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Comprobante_model::anios_para_reportes() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php:5451
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ocompra->reportes()
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php on line 5451
+[24-Jan-2023 14:52:16 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Comprobante_model::anios_para_reportes() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php:5451
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ocompra->reportes()
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php on line 5451
+[19-Feb-2023 11:41:30 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Ventas_Model::total_pagos() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/reportes/ventas.php:4050
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ventas->descargarExcel('2023-02-01', '2023-02-19')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/reportes/ventas.php on line 4050
+[19-Feb-2023 11:42:17 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Ventas_Model::total_pagos() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/reportes/ventas.php:4050
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ventas->descargarExcel('2023-02-01', '2023-02-19')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/reportes/ventas.php on line 4050
+[07-Mar-2023 15:50:48 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'F', '_____cedro')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[25-Apr-2023 16:48:28 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'B', '_____')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[27-Apr-2023 13:12:47 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Comprobante_model::anios_para_reportes() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php:5451
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ocompra->reportes()
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php on line 5451
+[27-Apr-2023 13:12:57 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Comprobante_model::anios_para_reportes() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php:5451
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ocompra->reportes()
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php on line 5451
+[05-May-2023 07:04:10 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Comprobante_model::anios_para_reportes() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php:5451
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ocompra->reportes()
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php on line 5451
+[12-May-2023 13:53:11 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Comprobante_model::anios_para_reportes() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php:5451
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ocompra->reportes()
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php on line 5451
+[12-May-2023 13:53:29 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Comprobante_model::anios_para_reportes() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php:5451
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ocompra->reportes()
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php on line 5451
+[20-May-2023 17:49:32 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'F', '_____')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[24-May-2023 13:25:50 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'F', '_____')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[24-May-2023 13:25:50 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'F', '_____')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[24-May-2023 13:25:50 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'F', '_____')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[24-May-2023 13:25:51 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'F', '_____')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[24-May-2023 13:25:51 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'F', '_____')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[24-May-2023 13:25:51 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'F', '_____')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[13-Jun-2023 21:24:25 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'N', '_____')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[07-Jul-2023 12:12:49 America/Lima] PHP Fatal error:  Uncaught Error: Class 'Cezpdf' not found in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php:7007
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Comprobante->verPdf('V', 'F', '_____')
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/ventas/comprobante.php on line 7007
+[19-Jul-2023 08:59:15 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Comprobante_model::anios_para_reportes() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php:5451
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ocompra->reportes()
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php on line 5451
+[19-Jul-2023 08:59:17 America/Lima] PHP Fatal error:  Uncaught Error: Call to undefined method Comprobante_model::anios_para_reportes() in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php:5451
+Stack trace:
+#0 /home/osaerp/public_html/produccion/dakarwash/system/codeigniter/CodeIgniter.php(471): Ocompra->reportes()
+#1 /home/osaerp/public_html/produccion/dakarwash/index.php(229): require_once('/home/osaerp/pu...')
+#2 {main}
+  thrown in /home/osaerp/public_html/produccion/dakarwash/system/application/controllers/compras/ocompra.php on line 5451
+[17-Jan-2024 12:42:56 America/Lima] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Producto::registro_productos_excel(), 0 passed in /home/osafactc2/public_html/produccion/denniscar/system/codeigniter/CodeIgniter.php on line 471 and exactly 5 expected in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php:4786
+Stack trace:
+#0 /home/osafactc2/public_html/produccion/denniscar/system/codeigniter/CodeIgniter.php(471): Producto->registro_productos_excel()
+#1 /home/osafactc2/public_html/produccion/denniscar/index.php(229): require_once('/home/osafactc2...')
+#2 {main}
+  thrown in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php on line 4786
+[17-Jan-2024 12:44:05 America/Lima] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Producto::registro_productos_excel(), 0 passed in /home/osafactc2/public_html/produccion/denniscar/system/codeigniter/CodeIgniter.php on line 471 and exactly 5 expected in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php:4786
+Stack trace:
+#0 /home/osafactc2/public_html/produccion/denniscar/system/codeigniter/CodeIgniter.php(471): Producto->registro_productos_excel()
+#1 /home/osafactc2/public_html/produccion/denniscar/index.php(229): require_once('/home/osafactc2...')
+#2 {main}
+  thrown in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php on line 4786
+[17-Jan-2024 12:44:09 America/Lima] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Producto::registro_productos_excel(), 0 passed in /home/osafactc2/public_html/produccion/denniscar/system/codeigniter/CodeIgniter.php on line 471 and exactly 5 expected in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php:4786
+Stack trace:
+#0 /home/osafactc2/public_html/produccion/denniscar/system/codeigniter/CodeIgniter.php(471): Producto->registro_productos_excel()
+#1 /home/osafactc2/public_html/produccion/denniscar/index.php(229): require_once('/home/osafactc2...')
+#2 {main}
+  thrown in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php on line 4786
+[17-Jan-2024 12:44:50 America/Lima] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Producto::registro_productos_excel(), 0 passed in /home/osafactc2/public_html/produccion/denniscar/system/codeigniter/CodeIgniter.php on line 471 and exactly 5 expected in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php:4786
+Stack trace:
+#0 /home/osafactc2/public_html/produccion/denniscar/system/codeigniter/CodeIgniter.php(471): Producto->registro_productos_excel()
+#1 /home/osafactc2/public_html/produccion/denniscar/index.php(229): require_once('/home/osafactc2...')
+#2 {main}
+  thrown in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php on line 4786
+[17-Jan-2024 12:58:23 America/Lima] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php:4975
+Stack trace:
+#0 /home/osafactc2/public_html/produccion/denniscar/system/codeigniter/CodeIgniter.php(471): Producto->registro_productos_excel('B', '--', '--', '--', '--')
+#1 /home/osafactc2/public_html/produccion/denniscar/index.php(229): require_once('/home/osafactc2...')
+#2 {main}
+  thrown in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php on line 4975
+[17-Jan-2024 12:58:29 America/Lima] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php:4975
+Stack trace:
+#0 /home/osafactc2/public_html/produccion/denniscar/system/codeigniter/CodeIgniter.php(471): Producto->registro_productos_excel('B', '--', '--', '--', '--')
+#1 /home/osafactc2/public_html/produccion/denniscar/index.php(229): require_once('/home/osafactc2...')
+#2 {main}
+  thrown in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/almacen/producto.php on line 4975
+[17-Jan-2024 14:15:12 America/Lima] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/osafactc2/public_html/produccion/denniscar/system/application/libraries/PHPExcel/Calculation/Functions.php on line 574
+[17-Jan-2024 14:18:34 America/Lima] PHP Fatal error:  'break' not in the 'loop' or 'switch' context in /home/osafactc2/public_html/produccion/denniscar/system/application/libraries/PHPExcel/Calculation/Functions.php on line 574
+[22-Feb-2024 15:49:28 America/Lima] PHP Fatal error:  Uncaught Error: Call to a member function confirmInventariado() on null in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/ventas/notacredito.php:4749
+Stack trace:
+#0 /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/ventas/notacredito.php(4457): Notacredito->aumentar_stock(Object(stdClass))
+#1 /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/ventas/notacredito.php(1759): Notacredito->actualizar_stock_nota(Object(stdClass))
+#2 /home/osafactc2/public_html/produccion/denniscar/system/codeigniter/CodeIgniter.php(471): Notacredito->envioSunatFac('6')
+#3 /home/osafactc2/public_html/produccion/denniscar/index.php(229): require_once('/home/osafactc2...')
+#4 {main}
+  thrown in /home/osafactc2/public_html/produccion/denniscar/system/application/controllers/ventas/notacredito.php on line 4749
