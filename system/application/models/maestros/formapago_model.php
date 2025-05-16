@@ -79,6 +79,19 @@ class Formapago_Model extends Model{
                 return $query->result();
         }
      }
+
+     public function listarmulti($number_items='', $offset=''){
+        $where = array("FORPAC_FlagEstado" => 1);
+        $excluir_ids = array(10, 15, 12, 13, 14, 16, 18); // IDs que quieres excluir
+        $query = $this->db->order_by('FORPAC_Descripcion')
+                            ->where($where)
+                            ->where_not_in('FORPAP_Codigo', $excluir_ids) // Excluir IDs 10, 15, 12, 13, 14, 16, 18
+                            ->get('cji_formapago', $number_items, $offset);
+        
+        if ($query->num_rows > 0) {
+            return $query->result();
+        }
+    }
      public function obtener($id)
      {
         $where = array("FORPAP_Codigo"=>$id);

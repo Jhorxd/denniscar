@@ -849,24 +849,50 @@ class Comprobante_model extends Model {
         }
     }
 
-    public function insertarComprobanteServicio($comprobante, $codService){
-        $this->db->insert('cji_comprobanteservicio', ['CPP_Codigo'=>$comprobante, 'CONT_Codigo'=>$codService]);
+    public function insertarComprobanteServicio($comprobante, $codServices) {
+    if (empty($codServices) || !is_array($codServices)) {
+        return;
     }
 
-    public function getComprobanteServicio($codigo){
-        $this->db->select('CONT_Codigo')->from('cji_comprobanteservicio');
-        $this->db->where('CPP_Codigo', $codigo);
-        $query = $this->db->get();
-        $response = $query->result();
+    foreach ($codServices as $serviceId) {
+        $this->db->insert('cji_comprobanteservicio', [
+            'CPP_Codigo'  => $comprobante,
+            'CONT_Codigo' => $serviceId
+        ]);
+    }
+}
 
-        return $response[0]->CONT_Codigo;
-        
+
+   public function getComprobanteServicio($codigo) {
+    $this->db->select('CONT_Codigo');
+    $this->db->from('cji_comprobanteservicio');
+    $this->db->where('CPP_Codigo', $codigo);
+    $query = $this->db->get();
+
+    $result = $query->result();
+    
+    $codigos = [];
+    foreach ($result as $row) {
+        $codigos[] = $row->CONT_Codigo;
     }
 
-    public function setComprobanteServicio($comprobante, $codService){
-        $this->db->set(['CONT_Codigo'=>$codService])->where('CPP_Codigo', $comprobante);
-        $this->db->update('cji_comprobanteservicio');
+    return $codigos;
+}
+
+    public function setComprobanteServicio($comprobante, $codServices) {
+    // Eliminar servicios anteriores
+    $this->db->where('CPP_Codigo', $comprobante);
+    $this->db->delete('cji_comprobanteservicio');
+
+    // Insertar uno por uno (porque insert_batch no funciona)
+    foreach ($codServices as $cod) {
+        $this->db->insert('cji_comprobanteservicio', [
+            'CPP_Codigo'  => $comprobante,
+            'CONT_Codigo' => $cod
+        ]);
     }
+}
+
 
     public function deleteComprobanteServicio($id){
         $this->db->where('CONT_Codigo', $id);

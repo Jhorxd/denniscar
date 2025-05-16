@@ -97,19 +97,21 @@ function ocompra_ver_pdf(ocompra){
   	var tipo_id = $("#tipo_id").val();
   	/*validacion*/
 
-  	let patron = "^[A-Za-z0-9\\-]{6,15}$";
-  	let placa = $("#placaSearch").val();
-		if (!placa.match(patron)){
-			Swal.fire({
-				icon: "error",
-				title: "Verifique los datos ingresados.",
-				html: "<b class='color-red'>Debe ingresar una placa valida. 'Solo se permiten letras, numeros y (-), minimo 6 caracteres.'</b>",
-				showConfirmButton: true,
-				timer: 4000
-			});
-			$("#placaSearch").focus();
-			return false;
-		}
+  	let placa = $("#placaSearch").val().toUpperCase().trim(); // trim() elimina espacios
+
+	let patron = /^(?:[A-Z0-9\-]{6,7}|[A-Z0-9]{17})$/;
+
+	if (!patron.test(placa)) {
+		Swal.fire({
+			icon: "error",
+			title: "Verifique los datos ingresados.",
+			html: "<b class='color-red'>Debe ingresar una placa (6-7 caracteres) o un VIN válido (17 caracteres).</b>",
+			showConfirmButton: true,
+			timer: 4000
+		});
+		$("#placaSearch").focus();
+		return false;
+	}
 
   	if($('#fecha_control').val()===""){
   		Swal.fire('Debe Ingresar la fecha de control!')

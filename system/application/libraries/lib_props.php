@@ -3220,7 +3220,27 @@ class Lib_props
         <td style="width:18.4cm; text-align:justification;" ><b>IMPORTE EN LETRAS:</b> ' . strtoupper(num2letras(round($total, 2))) . ' ' . $moneda_nombre . '</td>
         </tr>
         </table>';
+
+    $othersFormasP = $this->ci->comprobante_formapago_model->getList($codigo);
+    $montoPayMain  = $datos_comprobante[0]->FORPAP_Monto;
+    $formasPagoTexto = $formapago_desc . ': ' . $moneda_nombre . ' ' . number_format($montoPayMain, 2);
+
+    if (count($othersFormasP) > 0) {
+    foreach ($othersFormasP as $others) {
+        $formasPagoTexto .= '; ' . strtoupper($others->FORPAC_Descripcion) . ': ' . $others->MONED_Simbolo . ' ' . number_format($others->monto, 2);
+      }
+    }     
+
+    $formasPagoHTML = '<table cellspacing="1px" border="0">
+    <tr>
+        <td style="width:18.4cm; text-align:justification;"><b>FORMA DE PAGO:</b> ' . $formasPagoTexto . '</td>
+    </tr>
+    </table>';
+
+
+
     $this->pdf->writeHTML($totalLetrasHTML, true, false, true, false);
+    $this->pdf->writeHTML($formasPagoHTML, true, false, true, false);
 
     $infoBancosHTML = "";
     $infoBancos     = $this->ci->banco_model->ctas_bancarias($empresaInfo[0]->EMPRP_Codigo);

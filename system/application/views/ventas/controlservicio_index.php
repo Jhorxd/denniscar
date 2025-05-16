@@ -99,7 +99,7 @@ bkLib.onDomLoaded(function() {
                                 <th style="width:08%" data-orderable="true">FECHA</th>
                                 <th style="width:08%" data-orderable="true">SERVICIO</th>
                                 <th style="width:10%" data-orderable="true">COMPROBANTE</th>
-                                <th style="width:20%" data-orderable="true">PLACA</th>
+                                <th style="width:20%" data-orderable="true">PLACA / VIN</th>
                                 <th style="width:10%" data-orderable="true">KM ACTUAL</th>
                                 <th style="width:10%" data-orderable="true">PROX CAMBIO</th>
                                 <th style="width:05%" data-orderable="false"></th>
@@ -137,9 +137,9 @@ bkLib.onDomLoaded(function() {
                         <fieldset>
                             <section>
                                 <div class="row">
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="placaSearch">PLACA DEL VEHICULO</label>
+                                            <label for="placaSearch">PLACA / VIN DEL VEHICULO</label>
                                             <input type="hidden" id="placa" name="placa" value="">
                                             <input type="text" class="form-control h-1" id="placaSearch"
                                                 name="placaSearch" placeholder="Ingrese la placa">
@@ -159,6 +159,8 @@ bkLib.onDomLoaded(function() {
                                                 name="km_actual" placeholder="Ingrese km actual">
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="prox_sugerido">PROX CAMBIO SUGERIDO</label>
@@ -166,8 +168,6 @@ bkLib.onDomLoaded(function() {
                                                 name="prox_sugerido" placeholder="Proximo Cambio Sugerido">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="marca">MARCA DEL VEHICULO</label>

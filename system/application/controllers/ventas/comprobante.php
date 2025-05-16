@@ -50,6 +50,7 @@ class Comprobante extends Controller{
         $this->load->model('ventas/comprobantedetalle_model');
         $this->load->model('ventas/cliente_model');
         $this->load->model('ventas/presupuesto_model');
+        $this->load->model('ventas/comprobante_formapago_model');
         
         $this->load->model('sunat/sunat_model');
 
@@ -1923,6 +1924,7 @@ class Comprobante extends Controller{
             $data['cboAlmacen']     = form_dropdown("almacen", $lista_almacen, obtener_val_x_defecto($lista_almacen), " class='comboGrande' style='' id='almacen'");
             $data['cboMoneda']      = $this->OPTION_generador($this->moneda_model->listar(), 'MONED_Codigo', 'MONED_Descripcion', '1');
             $data['cboFormaPago']   = $this->OPTION_generador($this->formapago_model->listar(), 'FORPAP_Codigo', 'FORPAC_Descripcion', '1');
+            $data['cboFormaPagosmulti'] = $this->OPTION_generador($this->formapago_model->listarmulti(), 'FORPAP_Codigo', 'FORPAC_Descripcion', '1');
             $data['direccionsuc']   = form_input(array("name" => "direccionsuc", "id" => "direccionsuc", "class" => "cajaGeneral", "size" => "40", "maxlength" => "250", "value" => $punto_llegada));
             $data['cboVendedor']    = $this->lib_props->listarVendedores();
             $cambio_dia             = $this->tipocambio_model->obtener_tdc_dolar(date('Y-m-d'));
@@ -2127,6 +2129,19 @@ class Comprobante extends Controller{
         $accion         = $this->input->post("detaccion");
         $codService = $this->input->post("servicioAsociado");
 
+        $formPagoFP = $this->input->post('cmbFormasPago');
+        $monedaFP = $this->input->post('cmbMoneda');
+        $montoFP = $this->input->post('monto');
+
+        $cmbFormasPago = $this->input->post('cmbFormasPago');
+        $this->session->set_userdata('cmbFormasPago', $cmbFormasPago);
+
+        if ($cajaMultiple == "on") {
+            $cajaMultiple = "1";
+        } else {
+            $cajaMultiple = "0";
+        }
+
         $filter                         = new stdClass();
         $filter->CPC_TipoOperacion      = $tipo_oper;
         $filter->CPC_TipoDocumento      = $tipo_docu;
@@ -2243,9 +2258,13 @@ class Comprobante extends Controller{
         //FIN DETRACCIONES
         $filter->COMPP_Codigo = $compania;
         $comprobante = $this->comprobante_model->insertar_comprobante($filter);
-        $codService = (int) $codService;
 
-        $this->comprobante_model->insertarComprobanteServicio($comprobante, $codService);
+        // Recoger todos los servicios asociados como array
+        $codServices = $this->input->post("servicioAsociado"); // Esto es un array
+
+        if (!empty($codServices) && is_array($codServices)) {
+            $this->comprobante_model->insertarComprobanteServicio($comprobante, $codServices);
+        }
 
         /*:::::::::: CUOTAS ::::::::::::::::*/
 
@@ -2322,6 +2341,22 @@ class Comprobante extends Controller{
                     }
                     /**fin de insertar las series al comprobante**/
                 }
+            }
+        }
+
+        # Insertar otros metodos de pago
+
+        if (is_array($formPagoFP) and count($formPagoFP) > 0) {
+            foreach ($formPagoFP as $key => $fpago) {
+                $stdFormasPago = new StdClass();
+                $stdFormasPago->CPP_Codigo = $comprobante;
+                $stdFormasPago->FORPAP_Codigo = $fpago;
+                $stdFormasPago->MONED_Codigo = $monedaFP[$key];
+                $stdFormasPago->monto = $montoFP[$key];
+                $stdFormasPago->compro_flag_FechaRegistro = date('Y-m-d h:i:s');
+
+                if (!empty($montoFP[$key]))
+                    $this->comprobante_formapago_model->insertar($stdFormasPago);
             }
         }
         /**fin de insertar relacion guia de remision **/
@@ -2658,6 +2693,33 @@ class Comprobante extends Controller{
         }
         
         /*:::::: /// CUOTAS /// :::::::::::*/
+
+               // Obtener los datos desde el post (debe ser el JSON que envías)
+$array_total = json_decode($this->input->post('datos'), true);
+
+// Loguear el contenido del array para verificar la estructura
+// Extraer las formas de pago desde el array
+$formasPagoFP = isset($array_total[0]['Datos'][0]['formas_pago']) ? $array_total[0]['Datos'][0]['formas_pago'] : [];
+
+// Verificar que las formas de pago no estén vacías
+if (is_array($formasPagoFP) && count($formasPagoFP) > 0) {
+    foreach ($formasPagoFP as $fpago) {
+        $stdFormasPago = new StdClass();
+        $stdFormasPago->CPP_Codigo = $comprobante;  // Código del comprobante
+        $stdFormasPago->FORPAP_Codigo = $fpago['cmbFormasPago'];  // Código de la forma de pago
+        $stdFormasPago->MONED_Codigo = $fpago['cmbMoneda'];  // Código de la moneda
+        $stdFormasPago->monto = $fpago['monto'];  // Monto de la forma de pago
+        $stdFormasPago->compro_flag_FechaRegistro = date('Y-m-d H:i:s');  // Fecha de registro
+
+        // Loguear el objeto antes de la inserción
+        log_message('debug', 'Objeto de forma de pago: ' . print_r($stdFormasPago, true));
+
+        // Insertar si el monto no está vacío
+        if (!empty($fpago['monto'])) {
+            $this->comprobante_formapago_model->insertar($stdFormasPago);
+        }
+    }
+}
 
 
         if ($comprobante<1 || $comprobante=="") 
@@ -4123,6 +4185,8 @@ class Comprobante extends Controller{
         $data['cboAlmacen']     = form_dropdown("almacen", $lista_almacen, obtener_val_x_defecto($lista_almacen), " class='comboGrande' style='' id='almacen'");
         
         $data['cboFormaPago']   = $this->OPTION_generador($this->formapago_model->listar(), 'FORPAP_Codigo', 'FORPAC_Descripcion', $forma_pago);
+        $data['cboFormaPagosmulti'] = $this->OPTION_generador($this->formapago_model->listarmulti(), 'FORPAP_Codigo', 'FORPAC_Descripcion', $forma_pago);
+        $data['othersFormasP'] = $this->comprobante_formapago_model->getList($codigo);
         $data['cboMoneda']      = $this->OPTION_generador($this->moneda_model->listar(), 'MONED_Codigo', 'MONED_Descripcion', $moneda);
         $data['cboVendedor']    = $this->lib_props->listarVendedores($vendedor);
         $data['cajas']          = $this->caja_model->getCajas();
@@ -4297,6 +4361,12 @@ class Comprobante extends Controller{
         $proyecto           = $this->input->post('proyecto');
         $duacodigo          = $this->input->post('dua_cod');
         $importacion        = $this->input->post('importacion');
+
+        $fp_monto = $this->input->post("montoFP_default");
+        $formPagoFP = $this->input->post('formPagoFP');
+        $monedaFP = $this->input->post('monedaFP');
+        $montoFP = $this->input->post('montoFP');
+        
         $filter             = new stdClass();
         $filter->FORPAP_Codigo          = $this->input->post('forma_pago');
         $filter->CPC_Observacion        = strtoupper($this->input->post('observacion'));
@@ -4465,7 +4535,19 @@ class Comprobante extends Controller{
 
         /*:::::: /// CUOTAS /// :::::::::::*/
 
-        
+         # Modificar otras formas de Pagos
+        if (is_array($formPagoFP) and count($formPagoFP) > 0) {
+            $this->comprobante_formapago_model->deleteforComprobante($codigo);
+            foreach ($formPagoFP as $key => $fpago) {
+                $stdFormasPago = new StdClass();
+                $stdFormasPago->CPP_Codigo = $codigo;
+                $stdFormasPago->FORPAP_Codigo = $fpago;
+                $stdFormasPago->MONED_Codigo = $monedaFP[$key];
+                $stdFormasPago->monto = $montoFP[$key];
+                $stdFormasPago->compro_flag_FechaRegistro = date('Y-m-d h:i:s');
+                $this->comprobante_formapago_model->insertar($stdFormasPago);
+            }
+        }
 
         /**verificamos para ELIMINAR LAS GUIAS RELACIONADAS TIPO:1**/
         /**modificamos a estado 0 LOS REGUISTROS ASOCIADOS AL DOCUMENTO y seriesDocumento asociado***/
