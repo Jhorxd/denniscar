@@ -1,36 +1,46 @@
-<script type="text/javascript" src="<?php echo base_url(); ?>js/ventas/controlservicio.js?=<?=JS;?>"></script>
-<link href="<?=base_url();?>js/fancybox/dist/jquery.fancybox.css?=<?=CSS;?>" rel="stylesheet">
-<script src="<?=base_url();?>js/fancybox/dist/jquery.fancybox.js?=<?=JS;?>"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>js/ventas/controlservicio.js?=<?= JS; ?>"></script>
+<link href="<?= base_url(); ?>js/fancybox/dist/jquery.fancybox.css?=<?= CSS; ?>" rel="stylesheet">
+<script src="<?= base_url(); ?>js/fancybox/dist/jquery.fancybox.js?=<?= JS; ?>"></script>
 
 <script type="text/javascript">
-var base_url = '<?=base_url();?>';
+    var base_url = '<?= base_url(); ?>';
 </script>
-<script type="text/javascript" src="<?=base_url();?>js/nicEdit/nicEdit.js?=<?=JS;?>"></script>
+<script type="text/javascript" src="<?= base_url(); ?>js/nicEdit/nicEdit.js?=<?= JS; ?>"></script>
 
 <script type="text/javascript">
-bkLib.onDomLoaded(function() {
-    new nicEditor({
-        fullPanel: true
-    }).panelInstance('mensaje');
-});
-bkLib.onDomLoaded(function() {
-    new nicEditor({
-        fullPanel: true
-    }).panelInstance('mensajeWS');
-});
+    bkLib.onDomLoaded(function () {
+        new nicEditor({
+            fullPanel: true
+        }).panelInstance('mensaje');
+    });
+    bkLib.onDomLoaded(function () {
+        new nicEditor({
+            fullPanel: true
+        }).panelInstance('mensajeWS');
+    });
 </script>
 
 <div class="container-fluid">
     <div class="row header">
         <div class="col-md-12 col-lg-12">
-            <div><?=$titulo_busqueda;?></div>
+            <div><?= $titulo_busqueda; ?></div>
         </div>
     </div>
     <form id="form_busqueda" method="post">
         <div class="row fuente8 py-1">
             <div class="col-md-1">
-                <label for="buscar_placa">Placa</label>
-                <input type="text" name="buscar_placa" id="buscar_placa" value="" placeholder="Ingrese la placa"
+                <label for="searchPlaca">Placa / VIN</label>
+                <input type="text" name="searchPlaca" id="searchPlaca" value="" placeholder="Ingrese la placa"
+                    class="form-control h-1" autocomplete="off" />
+            </div>
+            <div class="col-md-1">
+                <label for="searchSerie">Marca</label>
+                <input type="text" name="searchMarca" id="searchMarca" value="" placeholder="Marca"
+                    class="form-control h-1" autocomplete="off" />
+            </div>
+            <div class="col-md-1">
+                <label for="searchOrden">Orden de pedido</label>
+                <input type="text" name="searchOrden" id="searchOrden" value="" placeholder="Orden"
                     class="form-control h-1" autocomplete="off" />
             </div>
             <div class="col-md-2">
@@ -52,13 +62,18 @@ bkLib.onDomLoaded(function() {
                     class="form-control h-1" autocomplete="off" />
             </div>
             <div class="col-md-1">
-                <label for="searchMarca">Marca</label>
-                <input type="text" name="searchMarca" id="searchMarca" value="" placeholder="Marca"
+                <label for="searchRuc">RUC</label>
+                <input type="text" name="searchRuc" id="searchRuc" value="" placeholder="Ruc" class="form-control h-1"
+                    autocomplete="off" />
+            </div>
+            <div class="col-md-1">
+                <label for="searchRazon">Razon Social</label>
+                <input type="text" name="searchRazon" id="searchRazon" value="" placeholder="Razon social"
                     class="form-control h-1" autocomplete="off" />
             </div>
             <div class="col-md-1">
-                <label for="searchModelo">Modelo</label>
-                <input type="text" name="searchModelo" id="searchModelo" value="" placeholder="Modelo"
+                <label for="searchProducto">Producto</label>
+                <input type="text" name="searchProducto" id="searchProducto" value="" placeholder="Producto"
                     class="form-control h-1" autocomplete="off" />
             </div>
         </div>
@@ -69,14 +84,17 @@ bkLib.onDomLoaded(function() {
                 <div class="col-sm-12 col-md-12 col-lg-12 pall-0">
                     <div class="acciones">
                         <div id="botonBusqueda">
-                            <ul class="lista_botones">
+                            <!-- <ul class="lista_botones">
                                 <li id="nuevo" onclick="addControl();">Nuevo Control</li>
-                            </ul>
+                            </ul> -->
                             <ul class="lista_botones">
                                 <li id="limpiar">Limpiar</li>
                             </ul>
                             <ul class="lista_botones">
                                 <li id="buscar">Buscar</li>
+                            </ul>
+                            <ul id="downloadOcompra" class="lista_botones">
+                                <li id="excel">Excel</li>
                             </ul>
                         </div>
                         <div id="lineaResultado">Registros encontrados</div>
@@ -85,35 +103,31 @@ bkLib.onDomLoaded(function() {
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 pall-0">
-                    <div class="header text-align-center"><?=$titulo_tabla;?></div>
+                    <div class="header text-align-center"><?= $titulo_tabla; ?></div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 pall-0">
                     <table class="fuente8 display" id="table-control">
-                        <div id="cargando_datos" class="loading-table">
-                            <img src="<?=base_url().'images/loading.gif?='.IMG;?>">
-                        </div>
                         <thead>
                             <tr class="cabeceraTabla">
-                                <th style="width:08%" data-orderable="true">FECHA</th>
-                                <th style="width:08%" data-orderable="true">SERVICIO</th>
-                                <th style="width:10%" data-orderable="true">COMPROBANTE</th>
-                                <th style="width:20%" data-orderable="true">PLACA / VIN</th>
-                                <th style="width:10%" data-orderable="true">KM ACTUAL</th>
-                                <th style="width:10%" data-orderable="true">PROX CAMBIO</th>
-                                <th style="width:05%" data-orderable="false"></th>
-                                <th style="width:05%" data-orderable="false"></th>
-                                <th style="width:05%" data-orderable="false"></th>
-                                <th style="width:05%" data-orderable="false"></th>
-                                <th style="width:05%" data-orderable="false"></th>
+                                <th style="width:8%" data-orderable="true">PLACA / VIN</th>
+                                <th style="width:8%" data-orderable="true">MARCA</th>
+                                <th style="width:8%" data-orderable="true">ORDEN PEDIDO</th>
+                                <th style="width:12%" data-orderable="true">FECHA REGISTRO</th>
+                                <th style="width:8%" data-orderable="true">SERIE</th>
+                                <th style="width:6%" data-orderable="true">NÚMERO</th>
+                                <th style="width:10%" data-orderable="true">RUC</th>
+                                <th style="width:10%" data-orderable="true">RAZON SOCIAL</th>
+                                <th style="width:13%" data-orderable="true">PRODUCTO</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
                     </table>
+
                 </div>
             </div>
-            <?=$oculto;?>
+            <?= $oculto; ?>
         </div>
     </div>
 </div>
@@ -621,7 +635,7 @@ bkLib.onDomLoaded(function() {
                         <div class="row">
                             <div class="col-sm-1 col-md-1 col-lg-1"></div>
                             <div class="col-sm-7 col-md-7 col-lg-7">
-<textarea id="mensaje" name="mensaje" style="width: 520px; height: 300px">
+                                <textarea id="mensaje" name="mensaje" style="width: 520px; height: 300px">
 <p><b>SRES.</b> <span class="mail-cliente"></span></p>
 <p><span class="mail-empresa-envio"></span>, ENVÍA UN DOCUMENTO ELECTRÓNICO.</p>
 <p><b>CONTROL NÚMERO:</b> <span class="mail-serie-numero"></span></p>
@@ -655,18 +669,18 @@ bkLib.onDomLoaded(function() {
 </div>
 <?php
 
-    $codigo_pais = "+51"; // Código de país predeterminado
+$codigo_pais = "+51"; // Código de país predeterminado
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $numero_celular = $_POST["numero-celu"];
-        $codigo_pais = $_POST["codigo-pais"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $numero_celular = $_POST["numero-celu"];
+    $codigo_pais = $_POST["codigo-pais"];
 
-        $numero_whatsapp = $codigo_pais . $numero_celular;
+    $numero_whatsapp = $codigo_pais . $numero_celular;
 
-    } else {
-        $numero_whatsapp = ""; // Número predeterminado de WhatsApp
-    }
-	
+} else {
+    $numero_whatsapp = ""; // Número predeterminado de WhatsApp
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -675,38 +689,38 @@ bkLib.onDomLoaded(function() {
 <head>
     <title>Enviar por WhatsApp</title>
     <style>
-    .body {
-        align-items: center;
-    }
+        .body {
+            align-items: center;
+        }
 
-    .modal-footer #W1 {
-        background-color: #25d366;
-    }
+        .modal-footer #W1 {
+            background-color: #25d366;
+        }
 
-    .modal-footer #W1:hover {
-        color: #ffff;
-        background-color: #000000;
-    }
+        .modal-footer #W1:hover {
+            color: #ffff;
+            background-color: #000000;
+        }
 
-    .modal-footer #W3 {
-        background-color: #25d366;
-    }
+        .modal-footer #W3 {
+            background-color: #25d366;
+        }
 
-    .modal-footer #W3:hover {
-        color: #ffff;
-        background-color: #000000;
-    }
+        .modal-footer #W3:hover {
+            color: #ffff;
+            background-color: #000000;
+        }
 
-    #subirnum {
-        margin-top: 20px;
-    }
+        #subirnum {
+            margin-top: 20px;
+        }
 
-    .card {
-        position: relative;
-        left: 100px;
-        height: 20rem;
-        width: 100rem;
-    }
+        .card {
+            position: relative;
+            left: 100px;
+            height: 20rem;
+            width: 100rem;
+        }
     </style>
 </head>
 
@@ -731,18 +745,24 @@ bkLib.onDomLoaded(function() {
                                 <div class="col-sm-1 col-md-1 col-lg-1"></div>
                                 <select class="custom-select btn btn-outline-secondary codigo-num"
                                     id="inputGroupSelect01" style="padding: 0;" name="codigo-pais">
-                                    <option value="+51" <?php if ($codigo_pais == '+51') echo 'selected'; ?>>+51
+                                    <option value="+51" <?php if ($codigo_pais == '+51')
+                                        echo 'selected'; ?>>+51
                                         <img src="image/countrys/peru.png">
                                     </option>
-                                    <option value="+52" <?php if ($codigo_pais == '+52') echo 'selected'; ?>>+52
+                                    <option value="+52" <?php if ($codigo_pais == '+52')
+                                        echo 'selected'; ?>>+52
                                     </option>
-                                    <option value="+54" <?php if ($codigo_pais == '+54') echo 'selected'; ?>>+54
+                                    <option value="+54" <?php if ($codigo_pais == '+54')
+                                        echo 'selected'; ?>>+54
                                     </option>
-                                    <option value="+55" <?php if ($codigo_pais == '+55') echo 'selected'; ?>>+55
+                                    <option value="+55" <?php if ($codigo_pais == '+55')
+                                        echo 'selected'; ?>>+55
                                     </option>
-                                    <option value="+56" <?php if ($codigo_pais == '+56') echo 'selected'; ?>>+56
+                                    <option value="+56" <?php if ($codigo_pais == '+56')
+                                        echo 'selected'; ?>>+56
                                     </option>
-                                    <option value="+593" <?php if ($codigo_pais == '+593') echo 'selected'; ?>>+593
+                                    <option value="+593" <?php if ($codigo_pais == '+593')
+                                        echo 'selected'; ?>>+593
                                     </option>
                                 </select>
                             </div>
@@ -754,436 +774,486 @@ bkLib.onDomLoaded(function() {
                             style="margin-left: 5px;"> </i></a>
                     <span class="btn btn-danger btn-close-envWS">Cerrar</span>
                 </div>
+            </div>
         </div>
-    </div>
 
-    <br>
-    <center />
-    <script>
-    document.getElementById("W1").addEventListener("click", function(event) {
-        event.preventDefault();
+        <br>
+        <center />
+        <script>
+            document.getElementById("W1").addEventListener("click", function (event) {
+                event.preventDefault();
 
-        var codigoPais = document.getElementById("inputGroupSelect01").value;
-        var numeroCelular = document.getElementById("numero-celu").value;
+                var codigoPais = document.getElementById("inputGroupSelect01").value;
+                var numeroCelular = document.getElementById("numero-celu").value;
 
-        var nicEditorInstance = nicEditors.findEditor('mensaje');
-        var mensajeConten = nicEditorInstance.getContent();
+                var nicEditorInstance = nicEditors.findEditor('mensaje');
+                var mensajeConten = nicEditorInstance.getContent();
 
-        var tempDiv = document.createElement("div");
-        tempDiv.innerHTML = mensajeConten;
-        var message = tempDiv.textContent || tempDiv.innerText;
+                var tempDiv = document.createElement("div");
+                tempDiv.innerHTML = mensajeConten;
+                var message = tempDiv.textContent || tempDiv.innerText;
 
-        var enlaceWhatsapp = "https://wa.me/" + encodeURIComponent(codigoPais + numeroCelular) +
-            "?text=" + encodeURIComponent(message);
+                var enlaceWhatsapp = "https://wa.me/" + encodeURIComponent(codigoPais + numeroCelular) +
+                    "?text=" + encodeURIComponent(message);
 
-        window.open(enlaceWhatsapp, '_blank');
-    });
-    </script>
+                window.open(enlaceWhatsapp, '_blank');
+            });
+        </script>
 </body>
 
 <script type="text/javascript">
-$(document).ready(function() {
+    $(document).ready(function () {
 
-    $("#placaSearch").autocomplete({
-        source: function(request, response) {
-            $.ajax({
-                url: "<?=base_url();?>index.php/maestros/empresa/getPlacas/",
+        $("#placaSearch").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "<?= base_url(); ?>index.php/maestros/empresa/getPlacas/",
+                    type: "POST",
+                    data: {
+                        placa: $("#placaSearch").val()
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        response(data);
+                    }
+                });
+            },
+            select: function (event, ui) {
+                $("#placaSearch").val(ui.item.value);
+                $("#placa").val(ui.item.id);
+            },
+            minLength: 2
+        });
+
+        $('#table-control').DataTable({
+            filter: false,
+            destroy: true,
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: "<?= base_url(); ?>index.php/ventas/controlservicio/datatable_control",
                 type: "POST",
                 data: {
-                    placa: $("#placaSearch").val()
+                    dataString: ""
+                },
+                beforeSend: function () {
+                    $(".loading-table").show();
+                },
+                error: function () { },
+                complete: function () {
+                    $(".loading-table").hide();
+                }
+            },
+            language: spanish,
+            order: [
+                [3, "desc"]
+            ]
+        });
+
+        $("#buscar").click(function () {
+            // Obtener valores de los nuevos campos
+            let fechai = $("#fecha_inicio").val();
+            let fechaf = $("#fecha_fin").val();
+            let placa = $("#searchPlaca").val();
+            let serie = $("#searchSerie").val();
+            let numero = $("#searchNumero").val();
+            let marca = $("#searchMarca").val();
+            let orden = $("#searchOrden").val();
+            let ruc = $("#searchRuc").val();
+            let razon = $("#searchRazon").val();
+            let producto = $("#searchProducto").val();
+
+            // Inicializar o reinicializar DataTable con los nuevos parámetros
+            $('#table-control').DataTable({
+                filter: false,
+                destroy: true,
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "<?= base_url(); ?>index.php/ventas/controlservicio/datatable_control",
+                    type: "POST",
+                    data: {
+                        fecha_inicio: fechai,
+                        fecha_fin: fechaf,
+                        searchPlaca: placa,
+                        searchSerie: serie,
+                        searchNumero: numero,
+                        searchMarca: marca,
+                        searchOrden: orden,
+                        searchRuc: ruc,
+                        searchRazon: razon,
+                        searchProducto: producto
+                    },
+                    beforeSend: function () {
+                        $(".loading-table").show();
+                    },
+                    error: function () {
+                        // Puedes manejar errores aquí
+                    },
+                    complete: function () {
+                        $(".loading-table").hide();
+                    }
+                },
+                language: spanish,
+                order: [
+                    [1, "desc"]
+                ]
+            });
+        });
+
+        $("#excel").click(function () {
+            let params = {
+                fecha_inicio: $("#fecha_inicio").val(),
+                fecha_fin: $("#fecha_fin").val(),
+                searchPlaca: $("#searchPlaca").val(),
+                searchSerie: $("#searchSerie").val(),
+                searchNumero: $("#searchNumero").val(),
+                searchMarca: $("#searchMarca").val(),
+                searchOrden: $("#searchOrden").val(),
+                searchRuc: $("#searchRuc").val(),
+                searchRazon: $("#searchRazon").val(),
+                searchProducto: $("#searchProducto").val()
+            };
+
+            let form = $('<form>', {
+                action: "<?= base_url(); ?>index.php/ventas/controlservicio/exportar_excel",
+                method: 'POST',
+                target: '_blank'
+            });
+
+            $.each(params, function (key, val) {
+                form.append($('<input>', { type: 'hidden', name: key, value: val }));
+            });
+
+            $('body').append(form);
+            form.submit();
+            form.remove();
+        });
+
+
+
+
+        $("#limpiar").click(function () {
+            // Limpiar valores de los inputs según los nuevos IDs
+            $("#fecha_inicio").val("");
+            $("#fecha_fin").val("");
+            $("#searchPlaca").val("");
+            $("#searchSerie").val("");
+            $("#searchNumero").val("");
+            $("#searchMarca").val("");
+            $("#searchOrden").val("");
+            $("#searchRuc").val("");
+            $("#searchRazon").val("");
+            $("#searchProducto").val("");
+
+            // Variables vacías para enviar al backend
+            let fecha_inicio = "";
+            let fecha_fin = "";
+            let searchPlaca = "";
+            let searchSerie = "";
+            let searchNumero = "";
+            let searchMarca = "";
+            let searchOrden = "";
+            let searchRuc = "";
+            let searchRazon = "";
+            let searchProducto = "";
+
+            // Reiniciar DataTable sin filtros
+            $('#table-control').DataTable({
+                filter: false,
+                destroy: true,
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "<?= base_url(); ?>index.php/ventas/controlservicio/datatable_control/",
+                    type: "POST",
+                    data: {
+                        fecha_inicio: fecha_inicio,
+                        fecha_fin: fecha_fin,
+                        searchPlaca: searchPlaca,
+                        searchSerie: searchSerie,
+                        searchNumero: searchNumero,
+                        searchMarca: searchMarca,
+                        searchOrden: searchOrden,
+                        searchRuc: searchRuc,
+                        searchRazon: searchRazon,
+                        searchProducto: searchProducto
+                    },
+                    beforeSend: function () {
+                        $(".loading-table").show();
+                    },
+                    error: function () {
+                        // Manejo de error si quieres
+                    },
+                    complete: function () {
+                        $(".loading-table").hide();
+                    }
+                },
+                language: spanish,
+                order: [
+                    [3, "desc"]
+                ]
+            });
+        });
+
+
+        $(".btn-close-envmail").click(function () {
+            $(".modal-envmail").modal("hide");
+        });
+
+        $(".btn-close-envWS").click(function () {
+            $(".modal-envWS").modal("hide");
+        });
+
+        $(".btn-sendMail").click(function () {
+
+            documento = '<?= (isset($id_documento)) ? $id_documento : ""; ?>';
+            codigo = $("#idDocMail").val();
+
+            destinatario = $("#destinatario").val();
+            asunto = $("#asunto").val();
+            mensaje = $(".nicEdit-main").html();
+
+            if (codigo == "") {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Sin documento. Intentelo nuevamente.",
+                    showConfirmButton: true,
+                    timer: 2000
+                });
+                return null;
+            }
+
+            if (destinatario == "") {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Debe ingresar un destinatario.",
+                    showConfirmButton: true,
+                    timer: 2000
+                });
+                $("#destinatario").focus();
+                return null;
+            } else {
+                correosI = destinatario.split(",");
+                /* DEVELOPING
+                expr = /^[a-zA-Z0-9@_.\-]{1,3}$/
+                
+                for (var i = 0; i < correosI.length - 1; i++) {
+                    if ( expr.test(correosI[i]) == false ){
+                        alert("Verifique que todos los correos indicados sean validos.");
+                    }
+                  }*/
+            }
+
+            if (asunto == "") {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Indique el asunto del correo.",
+                    showConfirmButton: true,
+                    timer: 2000
+                });
+                $("#asunto").focus();
+                return null;
+            }
+
+            var url = "<?= base_url(); ?>index.php/compras/ocompra/sendDocMail";
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {
+                    codigo: codigo,
+                    destinatario: destinatario,
+                    asunto: asunto,
+                    mensaje: mensaje,
+                    documento: documento
                 },
                 dataType: "json",
-                success: function(data) {
-                    response(data);
+                error: function (data) { },
+                beforeSend: function () {
+                    $(".tempde_footer .icon-loading-md").show();
+                    $(".btn-sendMail").hide();
+                },
+                success: function (data) {
+                    if (data.result == "success") {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Correo electronico enviado.",
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                        $(".modal-envmail").modal("hide");
+                    } else {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Correo no enviado, intentelo nuevamente.",
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    }
+                },
+                complete: function () {
+                    $(".tempde_footer .icon-loading-md").hide();
+                    $(".btn-sendMail").show();
                 }
             });
-        },
-        select: function(event, ui) {
-            $("#placaSearch").val(ui.item.value);
-            $("#placa").val(ui.item.id);
-        },
-        minLength: 2
-    });
-
-    $('#table-control').DataTable({
-        filter: false,
-        destroy: true,
-        processing: true,
-        serverSide: true,
-        ajax: {
-            url: "<?=base_url();?>index.php/ventas/controlservicio/datatable_control",
-            type: "POST",
-            data: {
-                dataString: ""
-            },
-            beforeSend: function() {
-                $(".loading-table").show();
-            },
-            error: function() {},
-            complete: function() {
-                $(".loading-table").hide();
-            }
-        },
-        language: spanish,
-        order: [
-            [1, "desc"]
-        ]
-    });
-
-    $("#buscar").click(function() {
-
-        fechai = $("#fecha_inicio").val();
-        fechaf = $("#fecha_fin").val();
-        placa = $("#buscar_placa").val();
-        serie = $("#searchSerie").val();
-        numero = $("#searchNumero").val();
-        marca = $("#searchMarca").val();
-        modelo = $("#searchModelo").val();
-
-        $('#table-control').DataTable({
-            filter: false,
-            destroy: true,
-            processing: true,
-            serverSide: true,
-            ajax: {
-                url: "<?=base_url();?>index.php/ventas/controlservicio/datatable_control",
-                type: "POST",
-                data: {
-                    fechai: fechai,
-                    fechaf: fechaf,
-                    buscar_placa: placa,
-                    marca: marca,
-                    modelo: modelo,
-                    serie: serie,
-                    numero: numero
-                },
-                beforeSend: function() {
-                    $(".loading-table").show();
-                },
-                error: function() {},
-                complete: function() {
-                    $(".loading-table").hide();
-                }
-            },
-            language: spanish,
-            order: [
-                [1, "desc"]
-            ]
         });
     });
 
-    $("#limpiar").click(function() {
+    function open_mail(id) {
+        $(".modal-envmail").modal("toggle");
 
-        $("#fecha_inicio").val("");
-        $("#fecha_fin").val("");
-        $("#buscar_placa").val("");
-        $("#searchSerie").val("");
-        $("#searchNumero").val("");
-        $("#searchMarca").val("");
-        $("#searchModelo").val("");
+        url = "<?= base_url(); ?>index.php/ventas/controlservicio/getInfoSendMail";
 
-        fechai = "";
-        fechaf = "";
-        buscar_placa = "";
-        ruc_cliente = "";
-        nombre_proveedor = "";
-        ruc_proveedor = "";
-        producto = "";
-        aprobado = "";
-        ingreso = "";
-        cboVendedor = "";
-        codigoEmpleado = "";
-        marca = "";
-        modelo = "";
-
-        $('#table-control').DataTable({
-            filter: false,
-            destroy: true,
-            processing: true,
-            serverSide: true,
-            ajax: {
-                url: "<?=base_url();?>index.php/ventas/controlservicio/datatable_control/",
-                type: "POST",
-                data: {
-                    fechai: fechai,
-                    marca: marca,
-                    modelo: modelo,
-                    fechaf: fechaf,
-                    buscar_placa: buscar_placa
-
-                },
-                beforeSend: function() {
-                    $(".loading-table").show();
-                },
-                error: function() {},
-                complete: function() {
-                    $(".loading-table").hide();
-                }
-            },
-            language: spanish,
-            order: [
-                [1, "desc"]
-            ]
-        });
-    });
-
-    $(".btn-close-envmail").click(function() {
-        $(".modal-envmail").modal("hide");
-    });
-
-    $(".btn-close-envWS").click(function() {
-        $(".modal-envWS").modal("hide");
-    });
-
-    $(".btn-sendMail").click(function() {
-
-        documento = '<?=(isset($id_documento)) ? $id_documento : "";?>';
-        codigo = $("#idDocMail").val();
-
-        destinatario = $("#destinatario").val();
-        asunto = $("#asunto").val();
-        mensaje = $(".nicEdit-main").html();
-
-        if (codigo == "") {
-            Swal.fire({
-                icon: "warning",
-                title: "Sin documento. Intentelo nuevamente.",
-                showConfirmButton: true,
-                timer: 2000
-            });
-            return null;
-        }
-
-        if (destinatario == "") {
-            Swal.fire({
-                icon: "warning",
-                title: "Debe ingresar un destinatario.",
-                showConfirmButton: true,
-                timer: 2000
-            });
-            $("#destinatario").focus();
-            return null;
-        } else {
-            correosI = destinatario.split(",");
-            /* DEVELOPING
-            expr = /^[a-zA-Z0-9@_.\-]{1,3}$/
-            
-            for (var i = 0; i < correosI.length - 1; i++) {
-                if ( expr.test(correosI[i]) == false ){
-                    alert("Verifique que todos los correos indicados sean validos.");
-                }
-              }*/
-        }
-
-        if (asunto == "") {
-            Swal.fire({
-                icon: "warning",
-                title: "Indique el asunto del correo.",
-                showConfirmButton: true,
-                timer: 2000
-            });
-            $("#asunto").focus();
-            return null;
-        }
-
-        var url = "<?=base_url();?>index.php/compras/ocompra/sendDocMail";
         $.ajax({
             url: url,
             type: "POST",
             data: {
-                codigo: codigo,
-                destinatario: destinatario,
-                asunto: asunto,
-                mensaje: mensaje,
-                documento: documento
+                id: id
             },
             dataType: "json",
-            error: function(data) {},
-            beforeSend: function() {
-                $(".tempde_footer .icon-loading-md").show();
-                $(".btn-sendMail").hide();
+            error: function () {
+
             },
-            success: function(data) {
-                if (data.result == "success") {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Correo electronico enviado.",
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
-                    $(".modal-envmail").modal("hide");
-                } else {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Correo no enviado, intentelo nuevamente.",
-                        showConfirmButton: false,
-                        timer: 2000
+            beforeSend: function () {
+                $("#id_control").val("");
+                $("#placa").val("");
+                $("#kilometraje").val("");
+                $("#proximo").val("");
+                $("#destinatario").val("");
+
+                $(".mail-empresa-envio").html("");
+                $(".mail-serie-numero").html("");
+                $(".mail-fecha").html("");
+
+
+                $(".mail-contactos").html("");
+            },
+            success: function (data) {
+                var info = data.info[0];
+
+                if (data.match == true) {
+                    $("#idDocMail").val(info.codigo);
+                    $("#placa_mail").val(info.placa);
+
+                    $("#kilometraje_mail").val(info.km_actual);
+                    $("#prox_sugerido_mail").val(info.prox_sugerido);
+
+
+
+                    $(".proxcambio_mail").html(info.prox_cambio);
+                    $(".placa_mail_envio").html(info.placa);
+                    $(".kmactuales_envio").html(info.km_actual);
+                    $(".prox_sugerido_envio").html(info.prox_sugerido);
+                    $(".mail-empresa-envio").html(info.empresa_envio);
+                    $(".mail-serie-numero").html(info.serie + " - " + info.numero);
+                    $(".mail-fecha").html(info.fecha);
+
+
+                    $.each(info.contactos, function (i, item) {
+                        var inputsContactos =
+                            "&nbsp;<input type='checkbox' class='ncontacto' onclick='ingresar_correo(\"" +
+                            item.correo + "\")' value='" + item.correo + "'>" + item.contacto;
+                        $(".mail-contactos").append(inputsContactos);
                     });
                 }
-            },
-            complete: function() {
-                $(".tempde_footer .icon-loading-md").hide();
-                $(".btn-sendMail").show();
             }
         });
-    });
-});
-
-function open_mail(id) {
-    $(".modal-envmail").modal("toggle");
-
-    url = "<?=base_url();?>index.php/ventas/controlservicio/getInfoSendMail";
-
-    $.ajax({
-        url: url,
-        type: "POST",
-        data: {
-            id: id
-        },
-        dataType: "json",
-        error: function() {
-
-        },
-        beforeSend: function() {
-            $("#id_control").val("");
-            $("#placa").val("");
-            $("#kilometraje").val("");
-            $("#proximo").val("");
-            $("#destinatario").val("");
-
-            $(".mail-empresa-envio").html("");
-            $(".mail-serie-numero").html("");
-            $(".mail-fecha").html("");
-
-
-            $(".mail-contactos").html("");
-        },
-        success: function(data) {
-            var info = data.info[0];
-
-            if (data.match == true) {
-                $("#idDocMail").val(info.codigo);
-                $("#placa_mail").val(info.placa);
-
-                $("#kilometraje_mail").val(info.km_actual);
-                $("#prox_sugerido_mail").val(info.prox_sugerido);
-
-
-
-                $(".proxcambio_mail").html(info.prox_cambio);
-                $(".placa_mail_envio").html(info.placa);
-                $(".kmactuales_envio").html(info.km_actual);
-                $(".prox_sugerido_envio").html(info.prox_sugerido);
-                $(".mail-empresa-envio").html(info.empresa_envio);
-                $(".mail-serie-numero").html(info.serie + " - " + info.numero);
-                $(".mail-fecha").html(info.fecha);
-
-
-                $.each(info.contactos, function(i, item) {
-                    var inputsContactos =
-                        "&nbsp;<input type='checkbox' class='ncontacto' onclick='ingresar_correo(\"" +
-                        item.correo + "\")' value='" + item.correo + "'>" + item.contacto;
-                    $(".mail-contactos").append(inputsContactos);
-                });
-            }
-        }
-    });
-}
-
-function open_WS(id) {
-    $(".modal-envWS").modal("toggle");
-
-    url = "<?=base_url();?>index.php/ventas/controlservicio/getInfoSendWS";
-
-    $.ajax({
-        url: url,
-        type: "POST",
-        data: {
-            id: id
-        },
-        dataType: "json",
-        error: function() {
-
-        },
-        beforeSend: function() {
-            $("#id_control").val("");
-            $("#placa").val("");
-            $("#kilometraje").val("");
-            $("#proximo").val("");
-            $("#destinatario").val("");
-
-            $(".mail-empresa-envio").html("");
-            $(".mail-serie-numero").html("");
-            $(".mail-fecha").html("");
-
-
-            $(".mail-contactos").html("");
-        },
-        success: function(data) {
-            var info = data.info[0];
-
-            if (data.match == true) {
-                $("#idDocMail").val(info.codigo);
-                $("#placa_mail").val(info.placa);
-
-                $("#kilometraje_mail").val(info.km_actual);
-                $("#prox_sugerido_mail").val(info.prox_sugerido);
-
-
-
-                $(".proxcambio_mail").html(info.prox_cambio);
-                $(".placa_mail_envio").html(info.placa);
-                $(".kmactuales_envio").html(info.km_actual);
-                $(".prox_sugerido_envio").html(info.prox_sugerido);
-                $(".mail-empresa-envio").html(info.empresa_envio);
-                $(".mail-serie-numero").html(info.serie + " - " + info.numero);
-                $(".mail-fecha").html(info.fecha);
-
-
-                $.each(info.contactos, function(i, item) {
-                    var inputsContactos =
-                        "&nbsp;<input type='checkbox' class='ncontacto' onclick='ingresar_correo(\"" +
-                        item.correo + "\")' value='" + item.correo + "'>" + item.contacto;
-                    $(".mail-contactos").append(inputsContactos);
-                });
-            }
-        }
-    });
-}
-
-
-function ingresar_correo(correo) {
-
-    destinatarios = $("#destinatario").val();
-
-    correosI = destinatarios.split(",");
-    cantidad = correosI.length;
-
-    add = true;
-
-    for (i = 0; i < cantidad; i++) {
-        if (correosI[i] == correo)
-            add = false;
     }
 
-    if (add == true) {
-        if (destinatarios != "")
-            $("#destinatario").val(destinatarios + "," + correo);
-        else
-            $("#destinatario").val(correo);
-    } else {
-        nvoCorreos = "";
-        for (i = 0; i < cantidad; i++) {
-            if (correosI[i] != correo) {
-                if (i > 0 && nvoCorreos != "") {
-                    nvoCorreos += ",";
+    function open_WS(id) {
+        $(".modal-envWS").modal("toggle");
+
+        url = "<?= base_url(); ?>index.php/ventas/controlservicio/getInfoSendWS";
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: {
+                id: id
+            },
+            dataType: "json",
+            error: function () {
+
+            },
+            beforeSend: function () {
+                $("#id_control").val("");
+                $("#placa").val("");
+                $("#kilometraje").val("");
+                $("#proximo").val("");
+                $("#destinatario").val("");
+
+                $(".mail-empresa-envio").html("");
+                $(".mail-serie-numero").html("");
+                $(".mail-fecha").html("");
+
+
+                $(".mail-contactos").html("");
+            },
+            success: function (data) {
+                var info = data.info[0];
+
+                if (data.match == true) {
+                    $("#idDocMail").val(info.codigo);
+                    $("#placa_mail").val(info.placa);
+
+                    $("#kilometraje_mail").val(info.km_actual);
+                    $("#prox_sugerido_mail").val(info.prox_sugerido);
+
+
+
+                    $(".proxcambio_mail").html(info.prox_cambio);
+                    $(".placa_mail_envio").html(info.placa);
+                    $(".kmactuales_envio").html(info.km_actual);
+                    $(".prox_sugerido_envio").html(info.prox_sugerido);
+                    $(".mail-empresa-envio").html(info.empresa_envio);
+                    $(".mail-serie-numero").html(info.serie + " - " + info.numero);
+                    $(".mail-fecha").html(info.fecha);
+
+
+                    $.each(info.contactos, function (i, item) {
+                        var inputsContactos =
+                            "&nbsp;<input type='checkbox' class='ncontacto' onclick='ingresar_correo(\"" +
+                            item.correo + "\")' value='" + item.correo + "'>" + item.contacto;
+                        $(".mail-contactos").append(inputsContactos);
+                    });
                 }
-
-                nvoCorreos += correosI[i];
             }
+        });
+    }
+
+
+    function ingresar_correo(correo) {
+
+        destinatarios = $("#destinatario").val();
+
+        correosI = destinatarios.split(",");
+        cantidad = correosI.length;
+
+        add = true;
+
+        for (i = 0; i < cantidad; i++) {
+            if (correosI[i] == correo)
+                add = false;
         }
 
-        $("#destinatario").val(nvoCorreos);
+        if (add == true) {
+            if (destinatarios != "")
+                $("#destinatario").val(destinatarios + "," + correo);
+            else
+                $("#destinatario").val(correo);
+        } else {
+            nvoCorreos = "";
+            for (i = 0; i < cantidad; i++) {
+                if (correosI[i] != correo) {
+                    if (i > 0 && nvoCorreos != "") {
+                        nvoCorreos += ",";
+                    }
+
+                    nvoCorreos += correosI[i];
+                }
+            }
+
+            $("#destinatario").val(nvoCorreos);
+        }
     }
-}
 </script>

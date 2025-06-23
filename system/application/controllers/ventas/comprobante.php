@@ -2113,6 +2113,9 @@ class Comprobante extends Controller{
         $flagGenInd     = $this->input->post('flagGenIndDet');
         $prodcantidad   = $this->input->post('prodcantidad');
         $proddescri     = $this->input->post('proddescri');
+        $prodplacavin     = $this->input->post('prodplacavin');
+        $prodmarca     = $this->input->post('prodmarca');
+        $prodordenpedido     = $this->input->post('prodordenpedido');
         $obra           = $this->input->post('obra');
 
         $proyecto = $this->input->post('proyecto');
@@ -2380,6 +2383,9 @@ class Comprobante extends Controller{
         $prodcosto          = $this->input->post('prodcosto');
         $almacenProducto    = $this->input->post('almacenProducto');
         $proddescri         = $this->input->post('proddescri');
+        $prodplacavin     = $this->input->post('prodplacavin');
+        $prodmarca     = $this->input->post('prodmarca');
+        $prodordenpedido     = $this->input->post('prodordenpedido');
         //producto datos
         $prodpu             = $this->input->post('prodpu');
         $prodprecio         = $this->input->post('prodprecio');
@@ -2476,6 +2482,9 @@ class Comprobante extends Controller{
                 if ($tipo_oper == 'V')
                     $filter->CPDEC_Costo        = $prodcosto[$indice];
                     $filter->CPDEC_Descripcion  = strtoupper($proddescri[$indice]);
+                    $filter->CPDEC_placavin        = $prodplacavin[$indice];
+                    $filter->CPDEC_marca        = $prodmarca[$indice];
+                    $filter->CPDEC_ordenpedido        = $prodordenpedido[$indice];
                     $filter->CPDEC_GenInd       = $flagGenInd[$indice];
                     $filter->CPDEC_Observacion  = $obs_detalle[$indice];
                     $filter->CPDEC_Pu = $prodpu[$indice];

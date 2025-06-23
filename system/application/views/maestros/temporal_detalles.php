@@ -76,6 +76,20 @@
                     </div>
                     <div class="row form-group align-items-center">
                     		<div class="col-sm-2 col-md-2 col-lg-2">
+                            <label for="placavin">PLACA / VIN</label>
+                            <input type="text" class="form-control h-2 w-porc-90" name="tempde_placavin" id="tempde_placavin">
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <label for="marca">MARCA</label>
+                            <input type="text" class="form-control h-2 w-porc-90" name="tempde_marca" id="tempde_marca">
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <label for="ordenpedido">ORDEN DE PEDIDO</label>
+                            <input type="text" class="form-control h-2 w-porc-90" name="tempde_ordenpedido" id="tempde_ordenpedido">
+                        </div>
+                    </div>
+					<div class="row form-group align-items-center">
+                    		<div class="col-sm-2 col-md-2 col-lg-2">
                             <label for="cantidad">Cantidad</label>
                             <input type="text" class="form-control h-2 w-porc-90" name="tempde_cantidad" id="tempde_cantidad" value="0" onkeypress="return numbersonly(this,event,'.');" onkeyup="calcular_temProducto_modal();">
                         </div>
@@ -1039,6 +1053,9 @@
 	    idLote 			= $("#tempde_lote").val();
 	    vencimientoLote = $("#tempde_vencimientoLote").val();
 	    nombre_producto = $("#tempde_producto").val();
+		var placavin = $("#tempde_placavin").val().trim();
+		var marca = $("#tempde_marca").val().trim();
+		var ordenpedido = $("#tempde_ordenpedido").val().trim();
 
 	    /*
 	    var marca = $('#tempde_filtro_marca').val();
@@ -1191,12 +1208,21 @@
 	    fila = '<tr id="' + n + '" class="' + clase + '" >';
 	    fila += '<td width="5%"><div align="center">' + j + '</div></td>';
 
-	    fila += "<td width='35%'><div align='left'><input type='hidden' name='proddescri[" + n + "]' id='proddescri[" + n + "]' value='" + nombre_producto +"'/><span id='proddescri_span["+n+"]'>"+nombre_producto_span+"</span>";
+	    fila += "<td width='20%'><div align='left'><input type='hidden' name='proddescri[" + n + "]' id='proddescri[" + n + "]' value='" + nombre_producto +"'/><span id='proddescri_span["+n+"]'>"+nombre_producto_span+"</span>";
 	    fila += '</div></td>';
 
-	    fila += '<td width="10%"><div style="text-align:center;">';
+	    fila += '<td width="5%"><div style="text-align:center;">';
 	    fila += '<input type="hidden" name="pendiente['+n+']" id="pendiente['+n+']" value="'+cantidad+'">';
 	    fila += '<input type="hidden" name="prodcantidad[' + n + ']" id="prodcantidad[' + n + ']" value="' + cantidad + '"><span id="prodcantidad_span['+n+']"> '+parseFloat(cantidad).toFixed(2)+'</span>';
+	    fila += '</div></td>';
+
+		fila += "<td width='8%'><div align='left'><input type='hidden' name='prodplacavin[" + n + "]' id='prodplacavin[" + n + "]' value='" + placavin +"'/><span id='prodplacavin["+n+"]'>"+placavin+"</span>";
+	    fila += '</div></td>';
+
+		fila += "<td width='7%'><div align='left'><input type='hidden' name='prodmarca[" + n + "]' id='prodmarca[" + n + "]' value='" + marca +"'/><span id='prodmarca["+n+"]'>"+marca+"</span>";
+	    fila += '</div></td>';
+
+		fila += "<td width='7%'><div align='left'><input type='hidden' name='prodordenpedido[" + n + "]' id='prodordenpedido[" + n + "]' value='" + ordenpedido +"'/><span id='prodordenpedido["+n+"]'>"+ordenpedido+"</span>";
 	    fila += '</div></td>';
 
 	    fila += '<td width="10%"><div style="text-align:center;"><span id="prod_precio_span_sigv['+n+']">'+parseFloat(precio_sinigv).toFixed(2)+'</span></div></td>';
@@ -1635,6 +1661,9 @@
 					$("#tempde_producto").val(item.TEMPDE_Descripcion);
 					$("#tempde_producto").attr('readonly','readonly');
 					$("#tempde_detalleItem").val(item.TEMPDE_Observacion);
+					$("#tempde_placavin").val(item.TEMPDE_placavin);
+					$("#tempde_marca").val(item.TEMPDE_marca);
+					$("#tempde_ordenpedido").val(item.TEMPDE_ordenpedido);
 					$("#tempde_prodStock").val(item.stock);
 					$("#tempde_productocosto").val(item.TEMPDE_Costo);
 					$("#tempde_cantidad").val(item.TEMPDE_Cantidad);
@@ -1852,6 +1881,9 @@
 			descuento 		= parseFloat(item.TEMPDE_Descuento100);
 			flagBS 			= item.TEMPDE_FlagBs;
 			observ_producto = item.TEMPDE_Observacion;
+			placavin        = item.TEMPDE_placavin;
+			marca           = item.TEMPDE_marca;
+			ordenpedido        = item.TEMPDE_ordenpedido;
 			producto    	= item.PROD_Codigo;
 			unidad_medida 	= item.UNDMED_Codigo;
 			tipoIgv 		= item.TEMPDE_TipoIgv;
@@ -1924,13 +1956,22 @@
 		    fila += '<td width="5%"><div align="center">' + j + '</div></td>';
 
 		    //fila += '<td width="35%"><div align="left"><input type="hidden" name="proddescri[' + n + ']" id="proddescri[' + n + ']" value="' + nombre_producto + '"/><span id="proddescri_span['+n+']">'+nombre_producto_span+'</span>';
-		    fila += "<td width='35%'><div align='left'><input type='hidden' name='proddescri[" + n + "]' id='proddescri[" + n + "]' value='" + nombre_producto + "'/><span id='proddescri_span["+n+"]'>"+nombre_producto_span+"</span>";
+		    fila += "<td width='20%'><div align='left'><input type='hidden' name='proddescri[" + n + "]' id='proddescri[" + n + "]' value='" + nombre_producto + "'/><span id='proddescri_span["+n+"]'>"+nombre_producto_span+"</span>";
 		    fila += '</div></td>';
 
-		    fila += '<td width="10%"><div style="text-align:center;">';
+		    fila += '<td width="5%"><div style="text-align:center;">';
 		    fila += '<input type="hidden" name="pendiente['+n+']" id="pendiente['+n+']" value="'+cantidad+'">';
 		    fila += '<input type="hidden" name="prodcantidad[' + n + ']" id="prodcantidad[' + n + ']" value="' + cantidad + '"><span id="prodcantidad_span['+n+']"> '+parseFloat(cantidad).toFixed(2)+'</span>';
 		    fila += '</div></td>';
+
+			fila += "<td width='8%'><div align='left'><input type='hidden' name='prodplacavin[" + n + "]' id='prodplacavin[" + n + "]' value='" + placavin +"'/><span id='prodplacavin["+n+"]'>"+placavin+"</span>";
+			fila += '</div></td>';
+
+			fila += "<td width='7%'><div align='left'><input type='hidden' name='prodmarca[" + n + "]' id='prodmarca[" + n + "]' value='" + marca +"'/><span id='prodmarca["+n+"]'>"+marca+"</span>";
+			fila += '</div></td>';
+
+			fila += "<td width='7%'><div align='left'><input type='hidden' name='prodordenpedido[" + n + "]' id='prodordenpedido[" + n + "]' value='" + ordenpedido +"'/><span id='prodordenpedido["+n+"]'>"+ordenpedido+"</span>";
+			fila += '</div></td>';
 
 		    fila += '<td width="10%"><div style="text-align:center;"><span id="prod_precio_span_sigv['+n+']">'+parseFloat(precio_sinigv).toFixed(2)+'</span></div></td>';
 
@@ -2129,6 +2170,9 @@
 		$("#tempde_precioUnitario").val("0");
 		$("#tempde_subTotal").val("0");
 		$("#tempde_tipoIgv").val("1");
+		$("#tempde_placavin").val("");
+		$("#tempde_marca").val("");
+		$("#tempde_ordenpedido").val("");
 
 		$("#tempde_lote").html("");
 	    $("#tempde_vencimientoLote").val("");

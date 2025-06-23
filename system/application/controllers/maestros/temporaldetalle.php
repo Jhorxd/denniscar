@@ -232,6 +232,10 @@ class Temporaldetalle extends Controller{
         $serie_anticipo     = $this->input->post('serie_anticipo');
         $numero_anticipo    = $this->input->post('numero_anticipo');
 
+        $placavin   = $this->input->post('tempde_placavin');
+        $marca    = $this->input->post('tempde_marca');
+        $ordenpedido    = $this->input->post('tempde_ordenpedido');
+
         $filter = new stdClass();
         $filter->TEMPDE_SESSION     = $tempsession;
         $filter->PROD_Codigo        = $codproducto;
@@ -262,6 +266,10 @@ class Temporaldetalle extends Controller{
         $filter->TEMPDE_AntNumero   = $numero_anticipo;
 
         $filter->TEMPDE_CodDetalle  = $item_number;
+        $filter->TEMPDE_placavin  = $placavin;
+        $filter->TEMPDE_marca  = $marca;
+        $filter->TEMPDE_ordenpedido  = $ordenpedido;
+
 
 
         $rspta = $this->temporaldetalle_model->insertar_productodetalle($filter);
@@ -304,6 +312,10 @@ class Temporaldetalle extends Controller{
         $serie_anticipo     = $this->input->post('serie_anticipo');
         $numero_anticipo    = $this->input->post('numero_anticipo');
 
+        $placavin   = $this->input->post('tempde_placavin');
+        $marca    = $this->input->post('tempde_marca');
+        $ordenpedido    = $this->input->post('tempde_ordenpedido');
+
 
         $filter = new stdClass();
         //$filter->TEMPDE_SESSION     = $this->somevar['temp_session'];
@@ -332,6 +344,10 @@ class Temporaldetalle extends Controller{
         $filter->TEMPDE_Anticipo    = $anticipo;
         $filter->TEMPDE_AntSerie    = $serie_anticipo;
         $filter->TEMPDE_AntNumero   = $numero_anticipo;
+
+        $filter->TEMPDE_placavin  = $placavin;
+        $filter->TEMPDE_marca  = $marca;
+        $filter->TEMPDE_ordenpedido  = $ordenpedido;
 
         $rspta =  $this->temporaldetalle_model->modificar_prodtemporal($id_tempdet,$filter,$tempsession);
         if ($rspta) {
@@ -1391,6 +1407,9 @@ class Temporaldetalle extends Controller{
                 $lote = $valor->LOTP_Codigo;
                 $cantidad = $valor->CPDEC_Cantidad;
                 $pendiente = $valor->CPDEC_Pendiente;
+                $placavin = $valor->CPDEC_placavin;
+                $marca = $valor->CPDEC_marca;
+                $ordenpedido = $valor->CPDEC_ordenpedido;
                 
                 $pu = $valor->CPDEC_Pu;
                 $subtotal = $valor->CPDEC_Subtotal;
@@ -1435,6 +1454,9 @@ class Temporaldetalle extends Controller{
                 $filter->TEMPDE_Stock       = $cantidad;
                 $filter->TEMPDE_Cantidad    = $cantidad;
                 $filter->TEMPDE_Pendiente   = $pendiente;
+                $filter->TEMPDE_placavin = $placavin;
+                $filter->TEMPDE_marca = $marca;
+                $filter->TEMPDE_ordenpedido = $ordenpedido;
                 if ($flagIgv[0]->COMPCONFIC_PrecioContieneIgv == "1") {
                     $filter->TEMPDE_Precio      = $pu_conigv;
                 }else{

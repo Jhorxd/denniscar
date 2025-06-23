@@ -3,11 +3,20 @@
                         <td width="5%">
                             <div align="center">&nbsp;</div>
                         </td>
-                        <td width="35%">
+                        <td width="20%">
                             <div align="center">DESCRIPCI&Oacute;N</div>
                         </td>
-                        <td width="10%">
+                        <td width="5%">
                             <div align="center">CANTIDAD</div>
+                        </td>
+                        <td width="8%">
+                            <div align="center">PLACA / VIN</div>
+                        </td>
+                        <td width="7%">
+                            <div align="center">MARCA</div>
+                        </td>
+                        <td width="7%">
+                            <div align="center">ORDEN</div>
                         </td>
                         
                         <td width="10%">
